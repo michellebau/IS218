@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %}Docker{% endblock %}
+{% block content %}
+    <h2>Docker</h2>
+    <div class="container-fluid f_layout">
+        <h5>Containers</h5>
+        <p>
+            According to <a href="https://www.docker.com/resources/what-container" target="_blank">Docker</a>, a container is
+            a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably
+            from one computing environment to another.
+        </p>
+        <p>
+            Available for both Linux and Windows-based applications, containerized software will always run the same,
+            regardless of the infrastructure. Containers isolate software from its environment and ensure that it works
+            uniformly despite differences for instance between development and staging.
+        </p>
+        <p>
+            Docker containers that run on Docker Engine are described to be standard, lightweight, and secure. Docker created
+            the industry standard for containers, so they could be portable anywhere. Containers share the machine’s OS system
+            kernel and therefore do not require an OS per application, driving higher server efficiencies and reducing server
+            and licensing costs. Applications are safer in containers and Docker provides the strongest default isolation
+            capabilities in the industry.
+        </p>
+        <p>
+            <img src="static/images/docker_container.png" width="100%" alt="Containers visualized">
+        </p>
+        <p>
+            Furthermore, containers are an abstraction at the app layer that packages code and dependencies together.
+            Multiple containers can run on the same machine and share the OS kernel with other containers,
+            each running as isolated processes in user space. Containers take up less space than VMs (container
+            images are typically tens of MBs in size), can handle more applications and require fewer VMs and
+            Operating systems.
+        </p>
+        <h5>Images</h5>
+        <p>
+            A Docker container image is a lightweight, standalone, executable package of software that includes everything
+            needed to run an application: code, runtime, system tools, system libraries and settings.
+        </p>
+        <p>
+            Container images become containers at runtime and in the case of Docker containers - images become containers
+            when they run on Docker Engine.
+        </p>
+        <h5>Docker Repositories</h5>
+        <p>
+            According to <a href="https://docs.docker.com/docker-hub/repos/" target="_blank">Docker Docs</a>, Docker
+            Hub repositories allow you to share container images with your team, customers, or the Docker
+            community at large.
+        </p>
+        <p>
+            Docker images are pushed to Docker Hub through the <code>docker push</code> command. A single Docker Hub repository
+            can hold many Docker images (stored as tags).
+        </p>
+        <h6>Pushing a Docker Container Image to Docker Hub</h6>
+        <p>
+            To push an image to Docker Hub, you must first name your local image using your Docker Hub username
+            and the repository name that you created through Docker Hub on the web. The Documentation site I mentioned
+            earlier has more details on how to complete this and handle repositories.
+        </p>
+        <h5>Examples of Commands</h5>
+        <p>
+            <code>docker --version</code> returns the currently installed version of Docker.
+        </p>
+        <p>
+            <code>docker pull <em>image_name</em></code> pulls an image from a Docker repository.
+        </p>
+        <p>
+            <code>docker run -it -d <em>image_name</em></code> creates a container from an image.
+        </p>
+        <p>
+            <code>docker ps</code> lists the running containers.
+        </p>
+        <p>
+            <code>docker ps -a</code> shows all the running and exited containers.
+        </p>
+        <p>
+            <code>docker stop <em>container_id</em></code> stops a running container.
+        </p>
+        <p>
+            <code>docker kill <em>container_id</em></code> kills the container by stopping its execution immediately.
+            Unlike <code>docker stop</code>, <code>docker kill</code> does not give the container time to shut down.
+        </p>
+        <p>
+            <code>docker commit <em>container_id</em> <em>username</em>/<em>image_name</em></code> creates a new image
+            of an edited container on the local system.
+        </p>
+        <p>
+            <code>docker push <em>username</em>/<em>image_name</em></code> is used to push an image to the Docker Hub repository.
+        </p>
+        <p>
+            <code>docker images</code> lists all the locally stored Docker images.
+        </p>
+        <p>
+            <code>docker rm <em>container_id</em></code> deletes a stopped container.
+        </p>
+        <p>
+            <code>docker rmi <em>image_id</em></code> deletes an image from local storage.
+        </p>
+        <p>
+            <code>docker build <em>path/to/Dockerfile</em></code> builds an image from a specified Docker file.
+        </p>
+        <h5>How to Start via the Terminal</h5>
+        <p>
+            This <a href="https://docs.docker.com/compose/" target="_blank">Docker documentation</a> explains it very well.
+            Using Docker Compose to start a project involves three steps:
+            <ol>
+        <li>Define your app’s environment with a <code>Dockerfile</code> so it can be reproduced anywhere.</li>
+        <li>Define the services that make up your app in <code>docker-compose.yml</code> so they can be run together in an isolated environment.</li>
+        <li>Run <code>docker compose up</code> and the Docker compose command starts and runs your entire app.
+            You can alternatively run <code>docker-compose up</code> using the docker-compose binary.</li>
+    </ol>
+        </p>
+    <p>
+        We often used <code>docker compose up --build</code> to start our projects in class. The <code>--build</code>
+        option <a href="https://docs.docker.com/compose/reference/up/" target="_blank">builds images before starting containers</a>.
+    </p>
+    </div>
+    <div>
+    <br>
+    <br>
+    <br>
+    </div>
+{% endblock %}

@@ -1,17 +1,12 @@
-name: Run Tests and Push Image to DockerHub
+name: Development Workflow
 
 on:
-  push:
-    branches:
-      - 'master'
-    tags:
-      - 'v*'
   pull_request:
     branches:
       - 'master'
 
 jobs:
-  runtest:
+  run_pytest:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,7 +19,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Test with pytest
-        run: pytest -vv
+        run: pytest --pylint -vv
 
   build-container:
     runs-on: ubuntu-latest
@@ -51,13 +46,14 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-  deploy:
+
+  deploy_heroku:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "is218flask" #Must be unique in Heroku
+          heroku_app_name: "mab259-dev" #Must be unique in Heroku
           heroku_email: "mab259@njit.edu"
           usedocker: true

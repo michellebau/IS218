@@ -1,3 +1,16 @@
 body {
-font-size: 200%;
+font-size: 100%;
+}
+.f_layout {
+    width: 55%;
+    float: left;
+}
+#footer {
+    position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: lavender;
+  color: black;
+  text-align: center;
 }

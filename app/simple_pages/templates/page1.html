@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}Git{% endblock %}
+{% block content %}
+    <h2> Git</h2>
+    <div class="container-fluid f_layout">
+    <h5>Branches</h5>
+        <p>
+            According to <a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell#:~:text=A%20branch%20in%20Git%20is,Note" target="_blank">Git</a>, branches
+            allow developers to diverge from the main line of development and continue to do work without affecting that main line of code
+            unless they decide to and when.</p>
+        <p>
+            Git doesn’t store data as a series of changesets or differences, but instead as a series of <em>snapshots</em>. When you make a commit,
+            Git stores a commit object that holds a pointer to the snapshot of the content you staged.
+            This object also contains the author’s name and email address, the message that you typed, and pointers to the commit or
+            commits that directly came before this commit (its parent or parents): zero parents for the initial commit, one parent for
+            a normal commit, and multiple parents for a commit that results from a merge of two or more branches.
+        </p>
+        <p>When you would like to update, add, or delete files to a repository on GitHub, you will be staging them to then <em>commit</em> them.
+        Commits will be discussed more in detail later on, however, branches serve to organize a developer's commit history. Git is very similar to Google Drive
+        in the sense that it holds files and a version control history of each file added, removed, or modified. Git employs a tree-like
+        organizational system to organize a developer's editing history. Because a developer may want to look back on previous editions
+        of a feature or their entire product, this can be very helpful. Branches are also helpful when writing and testing other lines of
+        code to see how it will work with the existing code before adding it or "merging" it to the main (or master) branch. The main
+        (or master) branch isn't different from other branches. However, when first initializing Git on a project, it is created by
+        default and most people do not bother changing it.</p>
+        <p>
+            A shorthand way to create a new branch from the one you are currently on is <code>git checkout -b <em>nameofbranch</em></code>.
+        </p>
+    <h5>Merge</h5>
+        <p>
+            According to <a href="https://www.atlassian.com/git/tutorials/using-branches/git-merge#:~:text=Merging%20is%20Git's%20way%20of,them%20into%20a%20single%20branch." target="_blank">Atlassian</a>,
+            merging is Git's way of putting a forked history back together again. The git merge command lets you take the independent lines
+            of development created by git branch (see above) and integrate them into a single branch.
+        </p>
+        <p>
+            <a href="https://dev.to/milu_franz/git-explained-an-in-depth-comparison-18mk" target="_blank">Milu Franz</a> describes a merge as a
+            <em>non-destructive operation to combine two branches’ histories without changing them</em>.
+        </p>
+        <p><code>git merge <em>branch</em></code> will merge the specified branch's history into the current one.</p>
+        <p><code>git checkout <em>branch</em></code> followed by <code>git merge master</code> will combine the latest changes
+        from master into your branch.</p>
+
+    <h5>Commit</h5>
+    <p>Let's rewind a little and talk about the process of <em>staging</em>. Staging takes place as you are preparing to save your files on your local repository. When a developer is ready to save changes to a project on a local machine, they will have to add any new files
+    and the changes made to existing files. A quick way to do that is through <code>git add .</code> in a terminal on the local machine. To
+    discern what's being saved at the moment, you should then run <code>git status</code>. This Git command will let you
+    know what is being saved as of now.</p>
+    <p>After staging, you are now ready to <em>commit</em>, or save, these changes to your local repository. Once making a commit, you have to
+    append a brief message that summarizes what is being done. This can be done through <code>git commit -m "<em>insert message here</em>"</code></p>
+    <h5>Tags</h5>
+    <p>According to <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging" target="_blank">Git</a>, there are two different types of tags,
+    <strong>lightweight</strong> and <strong>annotated</strong>. A lightweight tag is very much like a branch that doesn’t change - it’s just a
+    pointer to a specific commit.</p>
+    <p>
+        An annotated tag is stored as a full object in the Git database. It is checksummed; contains the tagger name, email, and date; has a
+        tagging message; and can be signed and verified with GNU Privacy Guard (GPG). It’s generally recommended that you create annotated tags
+        to collect all this information; but if you want a temporary tag or for some reason don’t want to keep the other information,
+        lightweight tags are available too.
+    </p>
+    <p>In short, tags are associated with commits, so you can use a tag to mark an individual point in your repository's history,
+    including a version number for a release. </p>
+    <p>An example of creating an annotated tag is: <code>git tag -a v1.4 -m "my version 1.4"</code>.</p>
+    <p>
+        The <code>-a</code> specifies that it is an annotated tag, <code>v1.4</code> is the tag itself in this example, and it is followed by
+        a (required) tagging message with <code>-m</code>.</p>
+    </p>
+        <p>
+            A lightweight tag is basically the commit checksum stored in a file - no other information is kept. To create a lightweight tag,
+            don’t supply any of the -a, -s, or -m options, just provide a tag name: <code>git tag v1.4-lw</code>.
+        </p>
+        <p>In this example, <code>v1.4</code> is the tage and <code>-lw</code> specifies it is lightweight.</p>
+    <h5>Repositories</h5>
+    <p>According to <a href="https://www.geeksforgeeks.org/what-is-a-git-repository/" target="_blank">GeeksforGeeks</a>, a Git
+    repository contains a collection of files of various different versions of a Project. These files are imported from the
+    repository into the local server of the user for further updates and modifications in the content of the file. A
+    Version Control System (VCS) is used to create these versions and store them in a specific place termed as a repository.</p>
+    <p>
+        The process of copying the content from an existing Git Repository with the help of various Git tools is known as <em>cloning</em>.
+        Once cloning is done, the user gets the complete repository on their local machine. Users can also create a new repository or
+        delete an existing repository. To delete a repository, the easier way is to just delete the folder containing the repository.
+    </p>
+    <p>
+        Repositories can be divided into two types based on the usage on a server, bare or non-bare. Bare repositories are
+        used to share the changes that are done by different developers. A user is not allowed to modify this repository or
+        create a new version for this repository based on the modifications done.
+    </p>
+    <p>
+        On the other hand, non-bare repositories are user-friendly and allow the user to create new modifications of files and
+        also create new versions for the repositories. Cloning process by default creates a non-bare repository if any parameter
+        is not specified during the clone operation.
+    </p>
+    </div>
+    <div>
+    <br>
+    <br>
+    </div>
+{% endblock %}
