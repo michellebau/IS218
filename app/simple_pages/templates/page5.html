@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}Glossary{% endblock %}
+{% block content %}
+    <h2>Glossary</h2>
+    <div class="container-fluid f_layout">
+    <h5>Instantiation</h5>
+        <p>The creation of an <em>instance</em> of a class, which is an object.</p>
+    <h5>Object</h5>
+    <p>An instance of a particular class.</p>
+        <p>In general, any number of objects may be constructed from a
+        class definition. The class to which an object belongs defines the general
+        characteristics of all instances of that class. Within those characteristics, an object will behave
+        according to the current state of its attributes and environment.</p>
+    <h5>Class</h5>
+        <p>A user-defined prototype for an object that defines a set of attributes that characterize any object
+        of the class. The attributes are data members (class variables and instance variables) and methods,
+        accessed via dot notation.</p>
+    <h5>Namespace</h5>
+        <p>A namespace is a declarative region that provides a scope to the identifiers (the names of types,
+        functions, variables, etc.) inside it.</p>
+        <p>Namespaces are used to organize code into logical groups and to
+        prevent name collisions that can occur especially when your code base includes multiple libraries.
+        All identifiers at namespace scope are visible to one another without qualification. Identifiers outside
+        the namespace can access the members by using the fully qualified name for each identifier.</p>
+    <h5>Constructor</h5>
+        <p>A constructor is <em>the</em> method of a class or structure in object-oriented programming that initializes
+        a newly created object of that type. Whenever an object is created, the constructor is called
+        automatically.</p>
+        <p>A constructor is like an instance method that typically has the same name as the class, and can be used
+            to set the values of the members of an object, either to default or to user-defined values. Instead of
+            performing a task by executing code, the constructor initializes the object, and it cannot
+            be static, final, abstract, and synchronized.</p>
+    <h5>Fixture</h5>
+        <p>In testing, a fixture provides a defined, reliable and consistent context for the tests. This could include
+        environment (for example a database configured with known parameters) or content (such as a dataset).</p>
+        <p>Fixtures define the steps and data that constitute the <strong>arrange</strong> phase of a test. In pytest,
+            they are functions you define that serve this purpose. They can also be used to define a test’s <strong>act</strong>
+            phase; this is a powerful technique for designing more complex tests.</p>
+        <p>The services, state, or other operating environments set up by fixtures are accessed by test functions
+            through arguments. For each fixture used by a test function there is typically a parameter (named after
+            the fixture) in the test function’s definition. You can learn more about fixtures
+            <a href="https://docs.pytest.org/en/7.1.x/explanation/fixtures.html"
+               target="_blank">here</a>.</p>
+    <h5>Type hint</h5>
+        <p>Type hints are a way to make Python feel statically typed.</p>
+        <p>While type hints can help structure your projects better, they are just that — hints — and by
+            default do not affect the runtime. However, there is a way to force type checks on runtime.</p>
+        <p>An example of adding type hints can be located
+            <em><a href="https://towardsdatascience.com/type-hints-in-python-everything-you-need-to-know-in-5-minutes-24e0bad06d0b"
+               target="_blank">here</a></em>.</p>
+        <p>Type hints may be built-in classes (including those defined in standard library or third-party
+            extension modules), abstract base classes, types available in the types module, and user-defined
+            classes (including those defined in the standard library or third-party modules).</p>
+        <p>While annotations are normally the best format for type hints, there are times when it is more
+            appropriate to represent them by a special comment, or in a separately distributed stub file.
+            Annotations must be valid expressions that evaluate without raising exceptions at the time the
+            function is defined.</p>
+        <p>Learn more about type hints and see further examples <em><a href="https://peps.python.org/pep-0484/" target="_blank">here</a></em>.</p>
+    <h5>Type cast</h5>
+        <p>Type casting is also referred to as Explicit Type Conversion. The data types of objects are converted
+            using predefined functions by the user. In Type Casting, loss of data may occur as we enforce the
+            object to a specific data type.</p>
+        <p>Users convert the data type of an object to a required data type. We use the predefined functions
+            like <code>int()</code>, <code>float()</code>, <code>str()</code>, etc. to perform explicit type
+            conversion. This type of conversion is  called typecasting because the user casts (changes)
+            the data type of the objects.</p>
+        <p>You can learn more about the syntax for type casting <em><a href="https://www.programiz.com/python-programming/type-conversion-and-casting"
+                                                                       target="_blank">here</a></em>.</p>
+        <p>Typecasting can be done by assigning the required data type function to the expression.</p>
+    <h5>Unit test</h5>
+        <p>A unit test is a way of testing a unit - the smallest piece of code that can be logically isolated in a
+        system.</p>
+        <p>In most programming languages, that is a function, a subroutine, a method or property. The isolated
+        part of the definition is important. In his book "Working Effectively with Legacy Code", author Michael
+        Feathers states that such tests are not unit tests when they rely on external systems:
+        <em>If it talks to the database, it talks across the network, it touches the file system, it requires system
+            configuration, or it can't be run at the same time as any other test.</em></p>
+        <p>A unit can be almost anything you want it to be -- a line of code, a method, or a class. Generally
+            though, smaller is better. Smaller tests give you a much more granular view of how your code is
+            performing. There is also the practical aspect that when you test very small units, your tests can be
+            run fast.</p>
+    <h5>Static</h5>
+    <p></p>
+    <h5>Instance method</h5>
+    <p></p>
+    <h5>Instance property</h5>
+    <p></p>
+    <h5>Static method</h5>
+    <p></p>
+    <h5>Static property</h5>
+    <p></p>
+    <h5>Encapsulation</h5>
+    <p></p>
+    <h5>Inheritance</h5>
+    <p>The transfer of the characteristics of a class to other classes that are derived from it.</p>
+    <h5>Polymorphism</h5>
+    <p></p>
+    <h5>Abstraction</h5>
+    <p></p>
+    <h5>Overview of SOLID</h5>
+    <p></p>
+    <h5>Overview of Design Patterns</h5>
+    <p></p>
+    </div>
+{% endblock %}
