@@ -1,43 +1,25 @@
 {% extends "base.html" %}
-{% block title %}Home{% endblock %}
 {% block content %}
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="height: 50%;">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <a href="{{ url_for('simple_pages.show', page="page1")}}">
-                    <img src="static/images/git_logo.png" class="d-block w-100" alt="Git">
-                </a>
-            </div>
-            <div class="carousel-item">
-                <a href="{{ url_for('simple_pages.show', page="page2")}}">
-                    <img src="static/images/docker_logo.png" class="d-block w-100" alt="Docker">
-                </a>
-            </div>
-            <div class="carousel-item">
-                <a href="{{ url_for('simple_pages.show', page="page3")}}">
-                    <img src="static/images/flask_logo.png" class="d-block w-100" alt="Flask">
-                </a>
-            </div>
-            <div class="carousel-item">
-                <a href="{{ url_for('simple_pages.show', page="page4")}}">
-                    <img src="static/images/ci_cd.png" class="d-block w-100" alt="CI/CD">
-                </a>
-            </div>
+    <div class="row">
+        <article class="col-8 lh-lg fs-5">
 
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+            <h1>Index Page</h1>
+            {{ lipsum (n=5, html=True, min=20, max=100) }}
+        </article>
+        {% if current_user.is_authenticated == false %}
+            <aside class="col-4">
+                <h2>Login</h2>
+                <form action="{{ url_for('auth.login') }}" method=post>
+                    <dl>
+                        {{ form.csrf_token }}
+                        {{ render_field(form.email) }}
+                        {{ render_field(form.password) }}
+                    </dl>
+                    <p><input type=submit value=Login>
+                </form>
+            </aside>
+        {% endif %}
+
     </div>
 {% endblock %}
+</article>
