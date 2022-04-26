@@ -1,3 +1,4 @@
+"""This tests the contexts process"""
 import datetime
 from os import getenv
 
@@ -24,7 +25,8 @@ def test_context_variables_year(client):
 def test_context_currency_format(client):
     """This tests checks if the copyright and current year are printed"""
     response = client.get("/")
-    test_string = f"$100"
+    num = 100
+    test_string = f"{num}"
     content = bytes(test_string, 'utf-8')
     assert response.status_code == 200
     assert content in response.data
